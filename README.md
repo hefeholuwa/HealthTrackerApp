@@ -2,7 +2,7 @@
 
 A comprehensive real-time dashboard for monitoring major global health diseases including COVID-19, Influenza, Malaria, Tuberculosis, and HIV/AIDS.
 
-[![GitHub](https://img.shields.io/badge/GitHub-hefeholuwa%2FCoronaTrackerApp-blue)](https://github.com/hefeholuwa/CoronaTrackerApp)
+[![GitHub](https://img.shields.io/badge/GitHub-hefeholuwa%2FHealthTrackerApp-blue)](https://github.com/hefeholuwa/HealthTrackerApp)
 [![Version](https://img.shields.io/badge/version-2.0.0-green)]()
 [![License](https://img.shields.io/badge/license-MIT-blue)]()
 
@@ -53,8 +53,8 @@ This interactive web application provides a unified platform to track and visual
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/hefeholuwa/CoronaTrackerApp.git
-   cd CoronaTrackerApp
+   git clone https://github.com/hefeholuwa/HealthTrackerApp.git
+   cd HealthTrackerApp
    ```
 
 2. **Install dependencies**

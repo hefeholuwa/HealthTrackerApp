@@ -6,7 +6,7 @@
   "author": "hefeholuwa",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hefeholuwa/CoronaTrackerApp.git"
+    "url": "https://github.com/hefeholuwa/HealthTrackerApp.git"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
