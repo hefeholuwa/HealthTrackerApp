@@ -1,0 +1,58 @@
+.mapContainer {
+    height: 500px;
+    width: 85%;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+}
+
+.mapContainer .leaflet-container {
+    height: 100%;
+    border-radius: 12px;
+}
+
+.infoContainer {
+    width: 150px;
+}
+
+.infoFlag {
+    height: 80px;
+    width: 100%;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.infoName {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    margin-top: 5px;
+}
+
+.infoConfirmed,
+.infoRecovered,
+.infoDeaths {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.infoConfirmed {
+    color: #CC1034;
+}
+
+.infoRecovered {
+    color: #7dd71d;
+}
+
+.infoDeaths {
+    color: #fb4443;
+}
+
+@media (max-width: 770px) {
+    .mapContainer {
+        width: 100%;
+    }
+}

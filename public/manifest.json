@@ -1,15 +1,15 @@
 {
-  "short_name": "COVID-19 TRACKER",
-  "name": "COVID-19 TRACKER APP",
+  "short_name": "Health Tracker",
+  "name": "Health Tracker - Global Disease Monitor",
   "icons": [
-      {
-          "src": "/images/covid19.png",
-          "type": "image/png",
-          "sizes": "1024x1024"
-      }
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#00d4ff",
+  "background_color": "#0a0a0f"
 }

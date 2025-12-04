@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 85%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.chartContainer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.loading {
+    color: #e0e0e0;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 770px) {
+    .container {
+        width: 100%;
+    }
+}

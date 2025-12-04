@@ -1,0 +1,93 @@
+.tableContainer {
+    width: 85%;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #00d4ff;
+}
+
+.tableWrapper {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table th {
+    position: sticky;
+    top: 0;
+    background-color: #1a1a2e;
+    /* Match main background to cover scrolling content */
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.countryCell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flag {
+    width: 20px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.recovered {
+    color: #00ff88;
+}
+
+.deaths {
+    color: #ff0055;
+}
+
+/* Scrollbar Styling */
+.tableWrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 770px) {
+    .tableContainer {
+        width: 100%;
+    }
+}

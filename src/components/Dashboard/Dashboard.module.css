@@ -1,0 +1,804 @@
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+    color: #e0e0e0;
+    overflow: hidden;
+    position: relative;
+}
+
+.dashboard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 212, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Loading State */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: #0a0a0f;
+    color: #00d4ff;
+}
+
+.loader {
+    border: 4px solid rgba(0, 212, 255, 0.1);
+    border-top: 4px solid #00d4ff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    width: 320px;
+    background: rgba(20, 20, 30, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(0, 212, 255, 0.1);
+    padding: 30px 20px;
+    overflow-y: auto;
+    flex-shrink: 0;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
+}
+
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.sidebarHeader {
+    margin-bottom: 30px;
+}
+
+.logo {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+    animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
+    }
+}
+
+.tagline {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Disease Selector */
+.diseaseSelector {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.diseaseTab {
+    flex: 1;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 13px;
+    position: relative;
+    overflow: hidden;
+}
+
+.diseaseTab::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+    transition: all 0.3s;
+    transform: translateX(-50%);
+}
+
+.diseaseTab:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.diseaseTab.active {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(0, 212, 255, 0.1) 100%);
+    border-color: rgba(0, 212, 255, 0.5);
+    color: #00d4ff;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+}
+
+.diseaseTab.active::before {
+    width: 80%;
+}
+
+/* Info Box */
+.infoBox {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 15px;
+}
+
+.infoBox p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    color: #b0b0b0;
+    line-height: 1.5;
+}
+
+.infoBox p:last-child {
+    margin-bottom: 0;
+}
+
+.infoBox strong {
+    color: #00d4ff;
+}
+
+/* Age Breakdown Section */
+.ageBreakdownSection {
+    margin-top: 25px;
+}
+
+.ageBreakdownList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ageBreakdownItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ageLabel {
+    font-size: 13px;
+    color: #b0b0b0;
+}
+
+.ageValue {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Influenza Content (Main Area) */
+.influenzaContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.trendSection {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.trendSection h2 {
+    margin: 0 0 20px 0;
+    color: #00d4ff;
+    font-size: 22px;
+}
+
+.chartContainer {
+    height: 250px;
+    padding: 15px 0;
+}
+
+/* Info Message */
+.infoMessage {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+}
+
+.infoMessage h2 {
+    margin: 0 0 20px 0;
+    color: #00d4ff;
+    font-size: 28px;
+}
+
+.infoMessage p {
+    margin: 10px 0;
+    color: #888;
+    font-size: 16px;
+}
+
+/* Disease Regional View */
+.diseaseRegionalView {
+    padding: 20px;
+}
+
+.diseaseRegionalView h2 {
+    margin: 0 0 25px 0;
+    color: #00d4ff;
+    font-size: 24px;
+}
+
+.regionGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.regionCard {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.regionCard::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.regionCard:hover::before {
+    opacity: 1;
+}
+
+.regionCard:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+    border-color: rgba(0, 212, 255, 0.4);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+        0 20px 60px rgba(0, 212, 255, 0.2),
+        0 0 0 1px rgba(0, 212, 255, 0.1) inset;
+}
+
+.regionCard h3 {
+    margin: 0 0 15px 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.regionStats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.regionStat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.regionLabel {
+    font-size: 13px;
+    color: #888;
+}
+
+.regionValue {
+    font-size: 18px;
+    font-weight: 700;
+    color: #00d4ff;
+}
+
+/* Stats Section */
+.statsSection {
+    margin-bottom: 30px;
+}
+
+.sectionTitle {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.statCard {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.statCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.statCard:hover::before {
+    left: 100%;
+}
+
+.statCard:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 212, 255, 0.03) 100%);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateX(5px);
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
+}
+
+.statIcon {
+    font-size: 28px;
+}
+
+.statContent {
+    flex: 1;
+}
+
+.statValue {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.statValue.green {
+    color: #00ff88;
+}
+
+.statValue.red {
+    color: #ff0055;
+}
+
+.statLabel {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Top Countries */
+.topCountriesSection {
+    margin-top: 30px;
+}
+
+/* Daily Changes Section */
+.dailyChangesSection {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.changeCard {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.changeCard:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateX(3px);
+}
+
+.changeHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.changeIcon {
+    font-size: 16px;
+}
+
+.changeLabel {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.changeValue {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    padding-left: 24px;
+}
+
+.changeValue.green {
+    color: #00ff88;
+}
+
+.changeValue.red {
+    color: #ff0055;
+}
+
+.countryList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.countryItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.countryItem:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateX(5px);
+}
+
+.countryRank {
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 212, 255, 0.2);
+    color: #00d4ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.countryFlag {
+    width: 32px;
+    height: 22px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.countryInfo {
+    flex: 1;
+}
+
+.countryName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.countryCases {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Main Content */
+.mainContent {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* Map Section */
+.mapSection {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.mapHeader {
+    padding: 20px 25px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mapHeader h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.mapLegend {
+    display: flex;
+    gap: 20px;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #888;
+}
+
+.legendDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.mapContainer {
+    height: 600px;
+    position: relative;
+}
+
+/* Details Panel */
+.detailsPanel {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.detailsHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detailsHeader img {
+    width: 48px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.detailsHeader h3 {
+    flex: 1;
+    margin: 0;
+    font-size: 22px;
+    color: #fff;
+}
+
+.closeBtn {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.closeBtn:hover {
+    background: rgba(255, 0, 85, 0.2);
+    border-color: rgba(255, 0, 85, 0.5);
+}
+
+.detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.detailItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detailLabel {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detailValue {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.detailValue.green {
+    color: #00ff88;
+}
+
+.detailValue.red {
+    color: #ff0055;
+}
+
+/* Popup Styles */
+.popupContainer {
+    min-width: 180px;
+}
+
+.popupFlag {
+    height: 60px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.popupName {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.popupStat {
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar,
+.mainContent::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track,
+.mainContent::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.mainContent::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover,
+.mainContent::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        max-height: 300px;
+    }
+
+    .topCountriesSection {
+        margin-top: 20px;
+    }
+
+    .mainContent {
+        padding: 20px;
+    }
+
+    .mapContainer {
+        height: 400px;
+    }
+
+    .detailsGrid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mapHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .mapLegend {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .detailsPanel {
+        padding: 20px;
+    }
+
+    .detailValue {
+        font-size: 20px;
+    }
+}
