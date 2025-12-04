@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Map as LeafletMap, TileLayer, Circle, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import { fetchCountriesData } from '../../api';
 import styles from './Map.module.css';
 import 'leaflet/dist/leaflet.css';
@@ -60,13 +60,13 @@ const Map = () => {
 
     return (
         <div className={styles.mapContainer}>
-            <LeafletMap center={mapCenter} zoom={mapZoom}>
+            <MapContainer center={mapCenter} zoom={mapZoom} style={{ height: '100%', width: '100%' }}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
                 {showDataOnMap(mapData)}
-            </LeafletMap>
+            </MapContainer>
         </div>
     );
 };

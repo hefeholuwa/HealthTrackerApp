@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Map as LeafletMap, TileLayer, Circle, Popup, Tooltip } from 'react-leaflet';
+import { MapContainer, TileLayer, Circle, Popup, Tooltip } from 'react-leaflet';
 import { fetchCountriesData } from '../../api';
 import styles from './MapView.module.css';
 import 'leaflet/dist/leaflet.css';
@@ -161,20 +161,19 @@ const MapView = () => {
             </div>
 
             {/* Full Screen Map */}
-            <LeafletMap
+            <MapContainer
                 center={mapCenter}
                 zoom={mapZoom}
                 className={styles.fullScreenMap}
                 style={{ height: '100vh', width: '100%' }}
                 zoomControl={true}
-                onClick={() => setHoveredCountry(null)}
             >
                 <TileLayer
                     url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                 />
                 {circles}
-            </LeafletMap>
+            </MapContainer>
         </div>
     );
 };

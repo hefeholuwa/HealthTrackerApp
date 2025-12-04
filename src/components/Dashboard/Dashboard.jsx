@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Map as LeafletMap, TileLayer, Circle, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Circle, Popup } from 'react-leaflet';
 import { Line } from 'react-chartjs-2';
 import { fetchCountriesData, fetchData } from '../../api';
 import { diseaseData } from '../../data/diseases';
@@ -435,7 +435,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
                             <div className={styles.mapContainer}>
-                                <LeafletMap
+                                <MapContainer
                                     center={mapCenter}
                                     zoom={mapZoom}
                                     style={{ height: '100%', width: '100%' }}
@@ -446,7 +446,7 @@ const Dashboard = () => {
                                         attribution='&copy; OpenStreetMap contributors'
                                     />
                                     {circles}
-                                </LeafletMap>
+                                </MapContainer>
                             </div>
                         </div>
 
