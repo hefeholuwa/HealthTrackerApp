@@ -1,68 +1,177 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🌍 Global Health Diseases Tracker
 
-## Available Scripts
+A comprehensive real-time dashboard for monitoring major global health diseases including COVID-19, Influenza, Malaria, Tuberculosis, and HIV/AIDS.
 
-In the project directory, you can run:
+[![GitHub](https://img.shields.io/badge/GitHub-hefeholuwa%2FCoronaTrackerApp-blue)](https://github.com/hefeholuwa/CoronaTrackerApp)
+[![Version](https://img.shields.io/badge/version-2.0.0-green)]()
+[![License](https://img.shields.io/badge/license-MIT-blue)]()
 
-### `npm start`
+## 📊 Overview
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This interactive web application provides a unified platform to track and visualize global health disease statistics. Originally built as a COVID-19 tracker, it has evolved into a multi-disease monitoring system that combines real-time API data with official WHO and UNAIDS statistics.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+### 🦠 **COVID-19 Dashboard**
+- Real-time global statistics (cases, recoveries, deaths)
+- Today's updates (new cases, deaths, recoveries)
+- Interactive world map with color-coded country hotspots
+- Top 5 most affected countries
+- Detailed country-specific information with flags
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🤧 **Influenza Dashboard**
+- Latest CDC ILINet surveillance data
+- Age distribution breakdown (0-4, 5-24, 25-49, 50-64, 64+ years)
+- 30-week trend visualization
+- Detailed statistics (average, peak, lowest cases)
 
-### `npm run build`
+### 🦟 **Malaria Dashboard**
+- Global statistics from WHO World Malaria Report 2024
+- Regional breakdown by WHO regions
+- Estimated cases and deaths
+- Key educational facts
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🫁 **Tuberculosis (TB) Dashboard**
+- WHO Global Tuberculosis Report 2024 data
+- Regional statistics across all continents
+- Treatment and prevention information
+- Drug-resistant TB insights
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### 🎗️ **HIV/AIDS Dashboard**
+- UNAIDS Global AIDS Update 2024
+- People living with HIV worldwide
+- Treatment coverage statistics
+- Regional distribution data
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Getting Started
 
-### `npm run eject`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/hefeholuwa/CoronaTrackerApp.git
+   cd CoronaTrackerApp
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-## Learn More
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Build for Production
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
 
-### Code Splitting
+This creates an optimized production build in the `build` folder.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## 🛠️ Tech Stack
 
-### Analyzing the Bundle Size
+| Technology | Purpose |
+|------------|---------|
+| **React 17** | Frontend framework |
+| **Material-UI** | UI component library |
+| **Leaflet** | Interactive maps |
+| **React-Leaflet** | React bindings for Leaflet |
+| **Chart.js** | Data visualization |
+| **React-ChartJS-2** | React wrapper for Chart.js |
+| **Axios** | HTTP client |
+| **CSS Modules** | Component-scoped styling |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## 📡 Data Sources
 
-### Making a Progressive Web App
+- **COVID-19 & Influenza**: [disease.sh API](https://disease.sh/) - Real-time data
+- **Malaria**: WHO World Malaria Report 2024
+- **Tuberculosis**: WHO Global Tuberculosis Report 2024
+- **HIV/AIDS**: UNAIDS Global AIDS Update 2024
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## 🎨 UI/UX Features
 
-### Advanced Configuration
+- 🌙 **Dark theme** with vibrant color accents
+- 📱 **Responsive design** for all screen sizes
+- 🗺️ **Interactive maps** with clickable regions
+- 📈 **Dynamic charts** and trend visualizations
+- ⚡ **Fast loading** with optimized components
+- 🎯 **Intuitive navigation** between diseases
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## 📂 Project Structure
 
-### Deployment
+```
+src/
+├── components/
+│   ├── Dashboard/          # Main dashboard component
+│   ├── Cards/             # Statistics cards
+│   ├── Chart/             # Chart components
+│   ├── Map/               # Map components
+│   ├── MapView/           # Map view wrapper
+│   ├── Table/             # Data tables
+│   ├── Vaccinations/      # Vaccination tracker
+│   └── index.js           # Component exports
+├── data/
+│   └── diseases.js        # Static WHO/UNAIDS data
+├── api/
+│   └── index.js           # API fetch functions
+├── App.js                 # Main app component
+└── index.js               # Entry point
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## 🔮 Roadmap
 
-### `npm run build` fails to minify
+- [ ] Add more diseases (Dengue, Cholera, Ebola)
+- [ ] Historical trend charts for all diseases
+- [ ] Advanced country search and filtering
+- [ ] Data export (PDF/CSV)
+- [ ] PWA support for offline access
+- [ ] User preferences and favorites
+- [ ] Multi-disease comparison mode
+- [ ] Mobile app versions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**hefeholuwa**
+- GitHub: [@hefeholuwa](https://github.com/hefeholuwa)
+
+## 🙏 Acknowledgments
+
+- [disease.sh](https://disease.sh/) for providing free COVID-19 and Influenza APIs
+- World Health Organization (WHO) for disease statistics
+- UNAIDS for HIV/AIDS data
+- CDC for Influenza surveillance data
+- OpenStreetMap contributors for map tiles
+
+## 📧 Contact & Support
+
+If you have any questions or suggestions, please open an issue on GitHub.
+
+---
+
+**⭐ Star this repository if you find it useful!**
+
+Made with ❤️ by hefeholuwa
